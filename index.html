@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URS Morong - College of Industrial Technology</title>
+
+    <style>
+      body {
+        background: url(e6113329-b0e4-44ff-8887-d0a26ae937ac.jpg) 20% no-repeat;
+        font-family: Tahoma, sans-serif;
+        font-size: 15px; /* BODY TEXT LARGER */
+        margin: 0;
+        background-color: #fff;
+        color: #222;
+        scroll-behavior: smooth;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      body.dark-mode {
+        background: #1e1e1e;
+        color: #eee;
+      }
+
+      /* HEADER BACK TO NORMAL (WHITE TEXT) */
+      header {
+        background-color: #8b1e1a;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      header h1,
+      header h2 {
+        color: white !important;
+      }
+
+      nav {
+        background-color: #b13b38;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 12px;
+        position: sticky;
+        top: 80px;
+        z-index: 1000;
+      }
+
+      nav a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      section {
+        padding: 30px;
+        max-width: 900px;
+        margin: auto;
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+
+      section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* BODY TITLES STILL RED */
+      h1,
+      h2 {
+        color: #d9534f;
+      }
+
+      /* DO NOT CHANGE HEADER TITLE COLOR */
+      header h1,
+      header h2 {
+        color: white !important;
+      }
+
+      .accordion {
+        background: #f1f1f1;
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 8px;
+        font-weight: bold;
+        border: none;
+        font-size: 15px;
+      }
+
+      .panel {
+        padding: 10px;
+        display: none;
+        background: #fafafa;
+        border-left: 2px solid #d9534f;
+        margin-bottom: 8px;
+        font-size: 15px;
+      }
+
+      .faculty-card {
+        background: #fff;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .faculty-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid #b13b38;
+      }
+
+      .inquiry-box {
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        background: #f9f9f9;
+        font-size: 15px;
+      }
+
+      #modeToggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        border-radius: 50%;
+        background: #d9534f;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      footer {
+        margin-top: 40px;
+        background: #d9534f;
+        color: white;
+        text-align: center;
+        padding: 12px;
+      }
+
+      /* FADE ANIMATION */
+      .fade-in {
+        animation: fadeIn 0.7s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>University of Rizal System - Morong Campus</h1>
+      <h2>College of Industrial Technology</h2>
+    </header>
+
+    <nav>
+      <a onclick="showHome()">Home</a>
+      <a onclick="showAbout()">About CIT</a>
+      <a onclick="showCourses()">Courses</a>
+      <a onclick="showFaculty()">Faculty</a>
+      <a onclick="showContact()">Contact Us</a>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home">
+      <h1>About CIT</h1>
+      <p class="fade-in">
+        The College of Industrial Technology (CIT) is committed to developing students
+        into highly skilled, industry-ready professionals. It offers strong technical
+        programs designed to enhance creativity, problem-solving abilities, and
+        hands-on expertise essential in today's modern workforce.
+      </p>
+
+      <h2>Purpose of CIT</h2>
+      <p class="fade-in">
+        The purpose of CIT is to equip learners with the knowledge, craftsmanship,
+        and professional work ethics needed for success in technical industries. It
+        trains students to become competent technicians, innovators, and leaders who
+        can contribute effectively to industrial and technological advancement.
+      </p>
+
+      <h2>Benefits and Opportunities</h2>
+      <ul class="fade-in">
+        <li>Practical, hands-on laboratory and workshop experience</li>
+        <li>Highly trained and industry-experienced instructors</li>
+        <li>Updated tools, equipment, and facilities</li>
+        <li>Strong technical and problem-solving skill development</li>
+        <li>Opportunities for internships, industry linkage, and job placements</li>
+        <li>Exposure to real-world projects and applications</li>
+      </ul>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h1>CIT GOAL</h1>
+      <p style="font-size: 20px;" class="fade-in">
+        The College of Industrial Technology aims to produce technologically proficient,
+        value-driven, and globally competitive graduates. It commits to shaping individuals
+        equipped with advanced technical skills, professional discipline, and positive work
+        ethics necessary to excel in various industrial and technological fields.
+      </p>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses">
+      <h1>Courses Offered</h1>
+
+      <button class="accordion">1. Architectural Drafting Technology</button>
+      <div class="panel"><p>Learn technical drawings, AutoCAD, building plans.</p></div>
+
+      <button class="accordion">2. Automotive Technology</button>
+      <div class="panel"><p>Vehicle inspection, repair, engine systems.</p></div>
+
+      <button class="accordion">3. Civil & Construction Technology</button>
+      <div class="panel"><p>Surveying, construction materials, drafting.</p></div>
+
+      <button class="accordion">4. Electrical Technology</button>
+      <div class="panel"><p>Wiring, motors, controls.</p></div>
+
+      <button class="accordion">5. Electronics Technology</button>
+      <div class="panel"><p>Circuit analysis, semiconductors.</p></div>
+
+      <button class="accordion">6. Mechanical Technology</button>
+      <div class="panel"><p>Machining, pneumatics, machine repair.</p></div>
+
+      <button class="accordion">7. HVAC Technology</button>
+      <div class="panel"><p>Air-conditioning, refrigeration systems.</p></div>
+
+      <button class="accordion">8. HRM Technology</button>
+      <div class="panel"><p>Food preparation, hospitality management.</p></div>
+    </section>
+
+    <!-- FACULTY -->
+    <section id="faculty">
+      <h1>Our Faculty</h1>
+
+      <div class="faculty-card fade-in">
+        <img src="faculty1.jpg" alt="Faculty 1">
+        <div>
+          <strong>Frederick R. Feliciano</strong>
+          <p><em>DEAN | College of Industrial Technology</em></p>
+        </div>
+      </div>
+
+      <div class="faculty-card fade-in">
+        <img src="faculty2.jpg" alt="Faculty 2">
+        <div>
+          <strong>Angeline P. Dacumos</strong>
+          <p>ADVISER | College of Industrial Technology</p>
+        </div>
+      </div>
+
+      <div class="faculty-card fade-in">
+        <img src="faculty3.jpg" alt="Faculty 3">
+        <div>
+          <strong>Homer R. Magistrado 3</strong>
+          <p>AREA COORDINATOR | College of Industrial Technology</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h1>Contact / Inquiries</h1>
+
+      <div class="inquiry-box fade-in">
+        <label>Name:</label>
+        <input type="text" id="name" />
+
+        <label>Message:</label>
+        <textarea id="message"></textarea>
+
+        <button onclick="sendMessage()">Send Inquiry</button>
+
+        <div class="messages" id="chatBox"></div>
+
+        <br /><br />
+
+        <a
+          href="https://www.facebook.com/share/1Bca9CKvSr/?mibextid=wwXIfr"
+          target="_blank"
+          style="
+            display: inline-block;
+            padding: 10px 15px;
+            background: #1877f2;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+          "
+        >
+          📘 Visit our Facebook Page
+        </a>
+      </div>
+    </section>
+
+    <footer>&copy; 2025 URS Morong - CIT</footer>
+
+    <button id="modeToggle" onclick="toggleMode()">☀</button>
+
+    <script>
+      function hideAll() {
+        document.querySelectorAll("section").forEach((sec) => {
+          sec.style.display = "none";
+          sec.classList.remove("visible");
+        });
+      }
+
+      function show(id) {
+        hideAll();
+        const sec = document.getElementById(id);
+        sec.style.display = "block";
+        setTimeout(() => sec.classList.add("visible"), 10);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function showHome() { show("home"); }
+      function showAbout() { show("about"); }
+      function showCourses() { show("courses"); }
+      function showFaculty() { show("faculty"); }
+      function showContact() { show("contact"); }
+
+      showHome();
+
+      document.querySelectorAll(".accordion").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const panel = btn.nextElementSibling;
+          panel.style.display = panel.style.display === "block" ? "none" : "block";
+        });
+      });
+
+      function sendMessage() {
+        const name = document.getElementById("name").value.trim();
+        const msg = document.getElementById("message").value.trim();
+        if (!msg) return alert("Please type a message.");
+
+        const chat = document.getElementById("chatBox");
+        chat.innerHTML += `<p><strong>${name || "Visitor"}:</strong> ${msg}</p>`;
+        chat.innerHTML += `<p><strong>CIT Bot:</strong> Thank you! Your message has been received.</p>`;
+      }
+
+      function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+        document.getElementById("modeToggle").textContent =
+          document.body.classList.contains("dark-mode") ? "🌙" : "☀";
+      }
+    </script>
+  </body>
+</html>
